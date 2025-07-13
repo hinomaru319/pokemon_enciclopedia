@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart'; // Google Fontsをインポート
 import 'package:pokemon_encyclopedia/services/pokeapi_service.dart'; // PokeApiServiceをインポート
 
 /// ポケモン詳細画面のStatefulWidget
@@ -89,13 +88,9 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
         ),
         title: _isLoading
             ? Text('Loading...',
-                style: TextStyle(
-                    fontFamily: GoogleFonts.notoSansJp().fontFamily,
-                    color: Colors.white)) // 色を白に固定
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.bold))
             : Text(_japaneseName,
-                style: TextStyle(
-                    fontFamily: GoogleFonts.notoSansJp().fontFamily,
-                    color: Colors.white)), // 色を白に固定
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
         backgroundColor: _pokemonDetails != null
             ? _getTypeColor((_pokemonDetails!['types'] as List)[0]['type']
                 ['name']) // ポケモンの第一タイプの色を使用
@@ -106,12 +101,7 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
         iconTheme: const IconThemeData(
           color: Colors.white, // 色を白に固定
         ),
-        titleTextStyle: TextStyle(
-          color: Colors.white, // 色を白に固定
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          fontFamily: GoogleFonts.notoSansJp().fontFamily, // フォント設定
-        ),
+        titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
       ),
       extendBodyBehindAppBar: true,
       body: _isLoading || _pokemonDetails == null
@@ -141,10 +131,7 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
                         // ポケモンの日本語名
                         Text(
                           _japaneseName,
-                          style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: GoogleFonts.notoSansJp().fontFamily),
+                          style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 28.0, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(width: 10), // 名前と詳細の間のスペース
                         Column(
@@ -153,18 +140,12 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
                             // ポケモンの高さ
                             Text(
                               '高さ: ${_pokemonDetails!['height'] / 10} m',
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: GoogleFonts.notoSansJp()
-                                      .fontFamily), // 小さなフォントサイズ
+                              style: Theme.of(context).textTheme.labelSmall,
                             ),
                             // ポケモンの重さ
                             Text(
                               '重さ: ${_pokemonDetails!['weight'] / 10} kg',
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: GoogleFonts.notoSansJp()
-                                      .fontFamily), // 小さなフォントサイズ
+                              style: Theme.of(context).textTheme.labelSmall,
                             ),
                           ],
                         ),
@@ -182,11 +163,7 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
                             label: Text(
                               typeInfo['type']['japanese_name'] ??
                                   typeInfo['type']['name'],
-                              style: TextStyle(
-                                  fontFamily:
-                                      GoogleFonts.notoSansJp().fontFamily,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold), // フォント設定
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
                             ),
                             backgroundColor: _getTypeColor(
                                 typeInfo['type']['name']), // タイプに基づいて背景色を設定
@@ -203,11 +180,7 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
                         children: [
                           Text(
                             '進化',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                fontFamily:
-                                    GoogleFonts.notoSansJp().fontFamily),
+                            style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 10),
                           SizedBox(
@@ -247,11 +220,7 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
                                               child: Text(
                                                 evoPokemon['japanese_name'],
                                                 textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontSize: 12, // 小さなフォントサイズ
-                                                  fontWeight: FontWeight.bold,
-                                                  fontFamily: GoogleFonts.notoSansJp().fontFamily,
-                                                ),
+                                                style: Theme.of(context).textTheme.labelSmall?.copyWith(fontWeight: FontWeight.bold),
                                               ),
                                             ),
                                           ],

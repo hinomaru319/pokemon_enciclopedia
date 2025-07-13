@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart'; // Google Fontsをインポート
 import 'package:pokemon_encyclopedia/screens/pokemon_detail_screen.dart'; // 詳細画面をインポート
 import 'package:pokemon_encyclopedia/services/pokeapi_service.dart'; // PokeApiServiceをインポート
 
@@ -75,17 +74,13 @@ class _PokemonListScreenState extends State<PokemonListScreen> {
               ),
               child: Text(
                 'メニュー',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontFamily: GoogleFonts.notoSansJp().fontFamily, // フォント設定
-                ),
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white),
               ),
             ),
             // 設定タイル
             ListTile(
               leading: const Icon(Icons.settings),
-              title: Text('設定', style: TextStyle(fontFamily: GoogleFonts.notoSansJp().fontFamily)), // フォント設定
+              title: Text('設定', style: Theme.of(context).textTheme.bodyMedium),
               onTap: () {
                 Navigator.pop(context);
               },
@@ -93,7 +88,7 @@ class _PokemonListScreenState extends State<PokemonListScreen> {
             // このアプリについてタイル
             ListTile(
               leading: const Icon(Icons.info),
-              title: Text('このアプリについて', style: TextStyle(fontFamily: GoogleFonts.notoSansJp().fontFamily)), // フォント設定
+              title: Text('このアプリについて', style: Theme.of(context).textTheme.bodyMedium),
               onTap: () {
                 Navigator.pop(context);
               },
@@ -101,7 +96,7 @@ class _PokemonListScreenState extends State<PokemonListScreen> {
             // お気に入りタイル
             ListTile(
               leading: const Icon(Icons.favorite),
-              title: Text('お気に入り', style: TextStyle(fontFamily: GoogleFonts.notoSansJp().fontFamily)), // フォント設定
+              title: Text('お気に入り', style: Theme.of(context).textTheme.bodyMedium),
               onTap: () {
                 Navigator.pop(context);
               },
@@ -115,7 +110,7 @@ class _PokemonListScreenState extends State<PokemonListScreen> {
               slivers: <Widget>[
                 // アプリバー
                 SliverAppBar(
-                  title: Text('ポケモン図鑑', style: TextStyle(color: Colors.white, fontFamily: GoogleFonts.notoSansJp().fontFamily)), // フォント設定
+                  title: Text('ポケモン図鑑', style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white)),
                   centerTitle: true,
                   floating: true,
                   pinned: false,
@@ -134,7 +129,7 @@ class _PokemonListScreenState extends State<PokemonListScreen> {
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.search),
                       ),
-                      style: TextStyle(fontFamily: GoogleFonts.notoSansJp().fontFamily), // フォント設定
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
                 ),
@@ -184,11 +179,7 @@ class _PokemonListScreenState extends State<PokemonListScreen> {
                                 child: Text(
                                   pokemon['japanese_name'],
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: GoogleFonts.notoSansJp().fontFamily, // フォント設定
-                                  ),
+                                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ],

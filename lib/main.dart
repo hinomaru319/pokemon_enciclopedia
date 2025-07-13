@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; // Google Fontsをインポート
-import 'package:pokemon_encyclopedia/screens/pokemon_list_screen.dart'; // PokemonListScreenをインポート
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +28,17 @@ class MyApp extends StatelessWidget {
           900: Color(0xFF042683),
         }),
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        fontFamily: GoogleFonts.notoSansJp().fontFamily, // アプリ全体のフォントをNoto Sans JPに設定
+        textTheme: TextTheme(
+          displaySmall:
+              GoogleFonts.notoSansJp(fontSize: 45.0, color: Colors.black), // XL
+          titleLarge:
+              GoogleFonts.notoSansJp(fontSize: 22.0, color: Colors.black), // L
+          bodyMedium: GoogleFonts.notoSansJp(
+              fontSize: 14.0, color: Colors.black87), // M
+          labelSmall: GoogleFonts.notoSansJp(
+              fontSize: 12.0, color: Colors.black54), // S
+          // その他のスタイルは必要に応じて定義
+        ),
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
@@ -51,24 +60,17 @@ class MyApp extends StatelessWidget {
           foregroundColor: Colors.white, // ダークモードのAppBarテキスト・アイコン色
         ),
         textTheme: TextTheme(
-          displayLarge: GoogleFonts.notoSansJp(color: Colors.white),
-          displayMedium: GoogleFonts.notoSansJp(color: Colors.white),
-          displaySmall: GoogleFonts.notoSansJp(color: Colors.white),
-          headlineMedium: GoogleFonts.notoSansJp(color: Colors.white),
-          headlineSmall: GoogleFonts.notoSansJp(color: Colors.white),
-          titleLarge: GoogleFonts.notoSansJp(color: Colors.white),
-          titleMedium: GoogleFonts.notoSansJp(color: Colors.white70),
-          titleSmall: GoogleFonts.notoSansJp(color: Colors.white70),
-          bodyLarge: GoogleFonts.notoSansJp(color: Colors.white),
-          bodyMedium: GoogleFonts.notoSansJp(color: Colors.white70),
-          labelLarge: GoogleFonts.notoSansJp(color: Colors.white),
-          bodySmall: GoogleFonts.notoSansJp(color: Colors.white70),
-          labelSmall: GoogleFonts.notoSansJp(color: Colors.white70),
+          displaySmall:
+              GoogleFonts.notoSansJp(fontSize: 45.0, color: Colors.white), // XL
+          titleLarge:
+              GoogleFonts.notoSansJp(fontSize: 22.0, color: Colors.white), // L
+          bodyMedium: GoogleFonts.notoSansJp(
+              fontSize: 14.0, color: Colors.white70), // M
+          labelSmall: GoogleFonts.notoSansJp(
+              fontSize: 12.0, color: Colors.white70), // S
+          // その他のスタイルは必要に応じて定義
         ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      themeMode: ThemeMode.system, // システム設定に追従
-      home: const PokemonListScreen(),
     );
   }
 }
