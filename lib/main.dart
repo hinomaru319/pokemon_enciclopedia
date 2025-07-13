@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; // Google Fontsをインポート
+import 'package:pokemon_encyclopedia/screens/pokemon_list_screen.dart'; // PokemonListScreenをインポート
 
 void main() {
   runApp(const MyApp());
@@ -71,6 +72,7 @@ class MyApp extends StatelessWidget {
           // その他のスタイルは必要に応じて定義
         ),
       ),
+      home: PokemonListScreen(),
     );
   }
 }
